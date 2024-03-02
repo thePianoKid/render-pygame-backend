@@ -1,6 +1,7 @@
 from typing import Union
 
 from fastapi import FastAPI
+from fastapi.responses import JSONResponse
 
 app = FastAPI()
 
@@ -17,7 +18,7 @@ def read_root():
     else:
         action = None
 
-    content = {"message": "Hello World"}
+    content = {"action": action}
     headers = {"Access-Control-Allow-Origin": "https://render-pygame-backend.onrender.com", "Content-Language": "en-US"}
         
-    return {"action": action}
+    return JSONResponse(content=content, headers=headers)
