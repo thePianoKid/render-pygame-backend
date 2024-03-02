@@ -5,6 +5,21 @@ from fastapi.responses import JSONResponse
 
 app = FastAPI()
 
+origins = [
+    "http://localhost.onrender.com",
+    "https://localhost.onrender.com",
+    "http://localhost",
+    "http://localhost:8080",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 # r: the mobile phone user will be assigned to move right
 # l: the mobile phone user will be assigned to move left
 # u: the mobile phone user will be assigned to move up
