@@ -16,5 +16,8 @@ def read_root():
         action = actions.pop()
     else:
         action = None
+
+    content = {"message": "Hello World"}
+    headers = {"Access-Control-Allow-Origin": "https://render-pygame-backend.onrender.com", "Content-Language": "en-US"}
         
     return {"action": action}
